@@ -1,6 +1,9 @@
 class Api::V1::RecipesController < Api::V1::BaseController
 def index
   @recipes = Recipe.all
+end 
+def show
+  @recipe = Recipe.find(params[:id])
 end
 
 private
