@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_060259) do
+ActiveRecord::Schema.define(version: 2020_08_08_080349) do
 
   create_table "posts", force: :cascade do |t|
     t.string "image"
@@ -35,6 +35,22 @@ ActiveRecord::Schema.define(version: 2020_08_08_060259) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string "votable_type"
+    t.integer "votable_id"
+    t.string "voter_type"
+    t.integer "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+    t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
   add_foreign_key "posts", "recipes"

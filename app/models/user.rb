@@ -1,3 +1,4 @@
-class User < ApplicationRecord
-  has_many :post
+class User < AppleicationRecord
+  has_many :posts
+  acts_as_voter
 end
