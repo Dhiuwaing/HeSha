@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'acts_as_votable'
+gem 'acts_as_favoritor'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
