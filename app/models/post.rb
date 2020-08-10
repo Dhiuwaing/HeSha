@@ -4,4 +4,6 @@ class Post < ApplicationRecord
   validates :image, :description, presence: true
   acts_as_votable
   acts_as_favoritable
+
+
 end

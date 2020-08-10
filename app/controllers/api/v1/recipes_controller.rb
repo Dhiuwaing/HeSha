@@ -4,7 +4,9 @@ def index
     @recipes = Recipe.search_by_name_description_ingredients(params[:query])
   else
     @recipes = Recipe.all
+  end
 end 
+
 def show
   @recipe = Recipe.find(params[:id])
 end
@@ -16,8 +18,7 @@ def recipe_params
 end
 
 def render_error
-    render json: {error: @recipe.errors.full_messages}
+    render_errorr json: {error: @recipe.errors.full_messages}
 end
-
 
 end
