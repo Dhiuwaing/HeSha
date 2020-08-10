@@ -1,7 +1,7 @@
 class Api::V1::RecipesController < Api::V1::BaseController
 def index
   if params[:query].present?
-    @movies = Recipe.search_by_name_description_ingredients(params[:query])
+    @recipes = Recipe.search_by_name_description_ingredients(params[:query])
   else
     @recipes = Recipe.all
 end 
